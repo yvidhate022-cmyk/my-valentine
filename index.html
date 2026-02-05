@@ -109,12 +109,31 @@ button {
     <img id="slide" src="photo1.jpg">
   </div>
 
-  <div id="letter">
-    From the moment you came into my life, everything became more beautiful.  
-    Every smile of yours means the world to me 💕  
-    This little page is just a reminder of how special you are to my heart ❤️
-  </div>
-</div>
+    <div id="letter">
+  Mrs. Mohini Yash Vidhate ❤️<br><br>
+
+  I LOVE YOU SO MUCH MRS. MOHINI YASH VIDHATE &lt;3 🧿<br>
+  I LOVE YOU MAZA SHONNA MONA TONA &lt;3 🫂<br>
+  I LOVE YOU MAZIII SWEETEST MUMMAAA &lt;3 💋<br>
+  I LOVE YOU MAZI DARLING &lt;3 💗<br>
+  I LOVE YOU MAZIII PILLLUUU &lt;3 💌<br>
+  I LOVE YOU MAZA CUTIE BAYKOO &lt;3 🥰<br>
+  I LOVE YOU MAZIII SWEETHEART &lt;3 💝<br>
+  I LOVE YOU MAZIII SWEETEST BAYKOOO &lt;3 😘<br>
+  I LOVE YOU MAZA CUTEST BACCHA &lt;3 🥺<br>
+  I LOVE YOU MERII WIYEFEEE &lt;3 😩<br>
+  I LOVE YOU RANIII JIII &lt;3 🤗<br>
+  I LOVE YOU SO MUCH MAZI EVERYTHING &lt;3 😭<br>
+  I LOVE YOU IN EVERY UNIVERSE &lt;3 💕<br>
+  I LOVE YOU MORE THAN MYSELF &lt;3 🫶🏻<br>
+  I LOVE YOU MERI JANEMAN &lt;3 ❣️<br>
+  I LOVE YOU MYY GIRUULLLLL &lt;3 🙈<br>
+  I LOVE YOU MY MOST BEAUTIFUL WOMEN IN WORLD 🌎<br><br>
+
+  KHUP LUCKY AAHEY G MI PILLU JE TU MAZA KADE AAHES 🥹<br>
+  I LOVE YOU SO SO SO SO SO SO SO MUCH G MAZYA SHONA<br>
+  PILLUDI MAZII SHONA BAYKO 🫴🏻🫂💗💋🎀
+    </div>
 
 <audio id="music" src="music.mp3" loop></audio>
 
@@ -150,17 +169,26 @@ setInterval(() => {
   document.getElementById("slide").src = `photo${i}.jpg`;
 }, 2500);
 
-/* HEARTS */
+/* MULTI COLOR HEARTS */
+const heartColors = [
+  "❤️", "💖", "💗", "💘", "💝", "💕", "💞", "🧡", "💛", "💜"
+];
+
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (15 + Math.random() * 25) + "px";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}, 400);
-</script>
 
+  heart.innerHTML =
+    heartColors[Math.floor(Math.random() * heartColors.length)];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (14 + Math.random() * 26) + "px";
+  heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 8000);
+}, 350);
+  
 </body>
 </html>
