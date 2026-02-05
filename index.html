@@ -1,20 +1,166 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Test</title>
-  <style>
-    body {
-      background: pink;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-size: 30px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>My Valentine ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #ffb6c1, #ffc0cb);
+  overflow-x: hidden;
+  text-align: center;
+}
+
+/* HIDDEN */
+.hidden { display: none; }
+
+/* PASSWORD */
+#lock {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+}
+
+button {
+  padding: 12px 22px;
+  font-size: 18px;
+  border-radius: 25px;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+  background: #ff4d6d;
+  color: white;
+}
+
+/* VALENTINE */
+#valentine {
+  padding-top: 60px;
+}
+
+#noBtn {
+  position: absolute;
+}
+
+/* SLIDESHOW */
+#slideshow img {
+  width: 80%;
+  max-width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* LETTER */
+#letter {
+  padding: 30px;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* HEARTS */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-110vh); }
+}
+</style>
 </head>
+
 <body>
-  ❤️ NEW PROJECT WORKING ❤️
+
+<!-- PASSWORD -->
+<div id="lock">
+  <h1>🔒 Enter Password</h1>
+  <input id="pass" type="password" placeholder="Password">
+  <button onclick="unlock()">Unlock ❤️</button>
+</div>
+
+<!-- VALENTINE -->
+<div id="valentine" class="hidden">
+  <h1>💖 Will You Be My Valentine? 💖</h1>
+  <button onclick="yes()">YES 💕</button>
+  <button id="noBtn" onmouseover="moveNo()">NO 😢</button>
+</div>
+
+<!-- SURPRISE -->
+<div id="main" class="hidden">
+  <h1>Hey My Love ❤️</h1>
+
+  <div id="slideshow">
+    <img id="slide" src="photo1.jpg">
+  </div>
+
+  <div id="letter">
+    From the moment you came into my life, everything became more beautiful.  
+    Every smile of yours means the world to me 💕  
+    This little page is just a reminder of how special you are to my heart ❤️
+  </div>
+</div>
+
+<audio id="music" src="music.mp3" loop></audio>
+
+<script>
+/* PASSWORD */
+function unlock() {
+  if (document.getElementById("pass").value === "mohiniyash") {
+    document.getElementById("lock").classList.add("hidden");
+    document.getElementById("valentine").classList.remove("hidden");
+  } else {
+    alert("Wrong password 😜");
+  }
+}
+
+/* NO BUTTON RUN */
+function moveNo() {
+  const btn = document.getElementById("noBtn");
+  btn.style.left = Math.random() * 80 + "vw";
+  btn.style.top = Math.random() * 80 + "vh";
+}
+
+/* YES */
+function yes() {
+  document.getElementById("valentine").classList.add("hidden");
+  document.getElementById("main").classList.remove("hidden");
+  document.getElementById("music").play();
+}
+
+/* SLIDESHOW */
+let i = 1;
+setInterval(() => {
+  i = i % 10 + 1;
+  document.getElementById("slide").src = `photo${i}.jpg`;
+}, 2500);
+
+/* HEARTS */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 25) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 400);
+</script>
+
 </body>
 </html>
